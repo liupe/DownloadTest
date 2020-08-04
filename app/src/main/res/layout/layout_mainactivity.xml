@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1a1a1a"
+            android:textSize="17dp"
+            android:text="use FileOutputStream write file"/>
+        <Button
+            android:id="@+id/btn_download1"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:text="开始下载"/>
+
+        <TextView
+            android:id="@+id/tv_progress1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:textSize="13dp"
+            android:text="进度："/>
+        <TextView
+            android:id="@+id/tv_result1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="13dp"
+            android:textColor="#1ddfdf"
+            android:text="下载结果："/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1a1a1a"
+            android:textSize="17dp"
+            android:text="use RandomAccessFile write file"/>
+        <Button
+            android:id="@+id/btn_download2"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:text="开始下载"/>
+
+        <TextView
+            android:id="@+id/tv_progress2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:textSize="13dp"
+            android:text="进度："/>
+        <TextView
+            android:id="@+id/tv_result2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="13dp"
+            android:textColor="#1ddfdf"
+            android:text="下载结果："/>
+    </LinearLayout>
+
+</LinearLayout>
