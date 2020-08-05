@@ -17,7 +17,6 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -52,17 +51,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 if (MainActivity.this.isDestroyed() || mTvProgress1 == null) {
                     return;
                 }
-                mTvProgress1.setText("进度：" + String.format("%.5f", progress * 100) + "%");
+                mTvProgress1.setText("progress：" + String.format("%.5f", progress * 100) + "%");
             }
 
             @Override
             public void downloadComplate() {
-                Toast.makeText(getApplicationContext(), "任务一下载完成", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "download task1 complate", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void downloadError(int code, String msg) {
-                Toast.makeText(getApplicationContext(), "任务一下载失败，错误码：" + code + ", 错误内容：" + msg, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "download task1 error，errorcode：" + code + ", msg：" + msg, Toast.LENGTH_LONG).show();
                 if (MainActivity.this.isDestroyed() || mBtnDownload1 == null) {
                     return;
                 }
@@ -75,20 +74,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     return;
                 }
 
-                mBtnDownload1.setText("下载完成");
+                mBtnDownload1.setText("download complate");
 
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(success ? "校验通过" : "校验失败");
-                stringBuffer.append("\n");
-                stringBuffer.append("apk总大小：" + totalByte + ", 实际下载大小：" + downloadByte);
-                stringBuffer.append("\n");
-                stringBuffer.append("----------------------");
-                stringBuffer.append("文件正确md5：" + rightMd5);
-                stringBuffer.append("\n");
-                stringBuffer.append("----------------------");
-                stringBuffer.append("下载文件md5：" + currentMd5);
-
-                mTvResult1.setText(stringBuffer.toString());
+                mTvResult1.setText(buildResult(success, totalByte, downloadByte, rightMd5, currentMd5));
             }
         };
 
@@ -98,17 +86,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 if (MainActivity.this.isDestroyed() || mTvProgress2 == null) {
                     return;
                 }
-                mTvProgress2.setText("进度：" + String.format("%.5f", progress * 100) + "%");
+                mTvProgress2.setText("progress：" + String.format("%.5f", progress * 100) + "%");
             }
 
             @Override
             public void downloadComplate() {
-                Toast.makeText(getApplicationContext(), "任务二下载完成", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "download task2 complate", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void downloadError(int code, String msg) {
-                Toast.makeText(getApplicationContext(), "任务二下载失败，错误码：" + code + ", 错误内容：" + msg, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "download task2 error，errorcode：" + code + ", msg：" + msg, Toast.LENGTH_LONG).show();
                 if (MainActivity.this.isDestroyed() || mBtnDownload2 == null) {
                     return;
                 }
@@ -121,20 +109,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     return;
                 }
 
-                mBtnDownload2.setText("下载完成");
+                mBtnDownload2.setText("download complate");
 
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(success ? "校验通过" : "校验失败");
-                stringBuffer.append("\n");
-                stringBuffer.append("apk总大小：" + totalByte + ", 实际下载大小：" + downloadByte);
-                stringBuffer.append("\n");
-                stringBuffer.append("----------------------");
-                stringBuffer.append("文件正确md5：" + rightMd5);
-                stringBuffer.append("\n");
-                stringBuffer.append("----------------------");
-                stringBuffer.append("下载文件md5：" + currentMd5);
-
-                mTvResult2.setText(stringBuffer.toString());
+                mTvResult2.setText(buildResult(success, totalByte, downloadByte, rightMd5, currentMd5));
             }
         };
 
@@ -155,17 +132,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
-    private float getNewPercent(int progressWrapper) {
-
-        float progress = progressWrapper / 1000f;
-
-        float difP;
-        if (progress == 0) {
-            difP = 1f;
-        } else {
-            difP = 1f - progress;
-        }
-        return 1f - (difP * difP);
+    private String buildResult(boolean success, long totalByte, long downloadByte, String rightMd5, String currentMd5) {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(success ? "verify pass" : "verify failed");
+        stringBuffer.append("\n");
+        stringBuffer.append("apk totalByte：" + totalByte + ", current byte：" + downloadByte);
+        stringBuffer.append("\n");
+        stringBuffer.append("----------------------");
+        stringBuffer.append("right md5：" + rightMd5);
+        stringBuffer.append("\n");
+        stringBuffer.append("----------------------");
+        stringBuffer.append("current md5：" + currentMd5);
+        return stringBuffer.toString();
     }
 
     @Override

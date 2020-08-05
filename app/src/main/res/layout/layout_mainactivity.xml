@@ -19,10 +19,12 @@
             android:text="use FileOutputStream write file"/>
         <Button
             android:id="@+id/btn_download1"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_marginTop="20dp"
-            android:text="开始下载"/>
+            android:text="download start"/>
 
         <TextView
             android:id="@+id/tv_progress1"
@@ -30,7 +32,7 @@
             android:layout_height="wrap_content"
             android:textColor="#666666"
             android:textSize="13dp"
-            android:text="进度："/>
+            android:text="progress："/>
         <TextView
             android:id="@+id/tv_result1"
             android:layout_width="wrap_content"
@@ -38,7 +40,7 @@
             android:layout_marginTop="10dp"
             android:textSize="13dp"
             android:textColor="#1ddfdf"
-            android:text="下载结果："/>
+            android:text="verify result:"/>
     </LinearLayout>
 
     <LinearLayout
@@ -55,10 +57,12 @@
             android:text="use RandomAccessFile write file"/>
         <Button
             android:id="@+id/btn_download2"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_marginTop="20dp"
-            android:text="开始下载"/>
+            android:text="download start"/>
 
         <TextView
             android:id="@+id/tv_progress2"
@@ -66,7 +70,7 @@
             android:layout_height="wrap_content"
             android:textColor="#666666"
             android:textSize="13dp"
-            android:text="进度："/>
+            android:text="progress："/>
         <TextView
             android:id="@+id/tv_result2"
             android:layout_width="wrap_content"
@@ -74,7 +78,7 @@
             android:layout_marginTop="10dp"
             android:textSize="13dp"
             android:textColor="#1ddfdf"
-            android:text="下载结果："/>
+            android:text="verify result："/>
     </LinearLayout>
 
 </LinearLayout>

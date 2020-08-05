@@ -118,7 +118,6 @@ public class DownloadThread implements Runnable {
             try {
                 mOriginalUrl = url;
 
-                //不符合增量更新条件,如果有第三方合作下载地址，则使用该下载地址
                 mUrl = new URL(url);
             } catch (MalformedURLException e) {
                 throw new StopRequestException(1, e);
@@ -230,10 +229,6 @@ public class DownloadThread implements Runnable {
 
     }
 
-    /**
-     * 验证完整性
-     *
-     */
     private void validate() {
         File file = new File(mState.mFilename);
         final long length = file.length();
